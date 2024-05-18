@@ -27,8 +27,8 @@ func Create(c *fiber.Ctx) error {
 
 	transaction = domain.Transaction{
 		Amount:      request.Amount,
-		Payer:       request.PayerID,
-		Reciever:    request.RecieverID,
+		PayerID:     request.PayerID,
+		RecieverID:  request.RecieverID,
 		Description: request.Description,
 	}
 

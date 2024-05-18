@@ -3,7 +3,7 @@ module github.com/flambra/bank
 go 1.22.2
 
 require (
-	github.com/flambra/helpers v0.0.0-20240518164254-1532a8c58acd
+	github.com/flambra/helpers v0.0.0-20240518221436-fa10279531f0
 	github.com/gofiber/fiber/v2 v2.52.4
 	github.com/joho/godotenv v1.5.1
 	gorm.io/gorm v1.25.10

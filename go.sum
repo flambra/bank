@@ -7,6 +7,8 @@ github.com/flambra/helpers v0.0.0-20240515043740-a5147b0f61fc h1:XN6hi49hwCjTdIK
 github.com/flambra/helpers v0.0.0-20240515043740-a5147b0f61fc/go.mod h1:J9R7O2wXWNMvDpYomrHMl6fHQan9oG8ZcO7/TYh6fiI=
 github.com/flambra/helpers v0.0.0-20240518164254-1532a8c58acd h1:a5tM84JslS8/fGmTN/H9jJ/rAHlK9+6uRVW6c2wrG0w=
 github.com/flambra/helpers v0.0.0-20240518164254-1532a8c58acd/go.mod h1:J9R7O2wXWNMvDpYomrHMl6fHQan9oG8ZcO7/TYh6fiI=
+github.com/flambra/helpers v0.0.0-20240518221436-fa10279531f0 h1:VC91/apEyPwyCa8PdgIgrnsew/lUtT1mT9BogYlgX8I=
+github.com/flambra/helpers v0.0.0-20240518221436-fa10279531f0/go.mod h1:J9R7O2wXWNMvDpYomrHMl6fHQan9oG8ZcO7/TYh6fiI=
 github.com/gofiber/fiber/v2 v2.52.4 h1:P+T+4iK7VaqUsq2PALYEfBBo6bJZ4q3FP8cZ84EggTM=
 github.com/gofiber/fiber/v2 v2.52.4/go.mod h1:KEOE+cXMhXG0zHc9d8+E38hoX+ZN7bhOtgeF2oT6jrQ=
 github.com/google/uuid v1.5.0 h1:1p67kYwdtXjb0gL0BPiP1Av9wiZPo5A8z2cWkTZ+eyU=
