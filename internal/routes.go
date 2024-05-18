@@ -30,7 +30,6 @@ func InitializeRoutes(app *fiber.App) {
 	app.Delete("/account/:id", account.Delete)
 
 	app.Post("/transaction", transaction.Create)
-	app.Get("/transaction/:id", transaction.List)
-	app.Get("/transactions/", transaction.Page)
+	app.Get("/transactions", transaction.Page)
 
 }
