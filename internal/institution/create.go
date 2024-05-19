@@ -8,17 +8,9 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-type InstitutionCreateRequest struct {
-	Code int    `json:"code"`
-	Name string `json:"name"`
-	CNPJ string `json:"cnpj"`
-	Logo string `json:"logo"`
-}
-
 func Create(c *fiber.Ctx) error {
-
 	var institution domain.Institution
-	var request InstitutionCreateRequest
+	var request domain.InstitutionCreateRequest
 	institutionRepo := hRepository.New(hDb.Get(), &institution, c)
 
 	if err := c.BodyParser(&request); err != nil {

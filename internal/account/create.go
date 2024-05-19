@@ -8,21 +8,9 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-type AccountCreateRequest struct {
-	Account       int    `json:"account"`
-	Balance       int    `json:"balance"`
-	Agency        int    `json:"agency"`
-	Digit         int    `json:"digit"`
-	Favorite      bool   `json:"favorite"`
-	Owner         string `json:"owner"`
-	TypeAccount   string `json:"type_account"`
-	InstitutionID int    `json:"institution_id"`
-}
-
 func Create(c *fiber.Ctx) error {
-
 	var account domain.Account
-	var request AccountCreateRequest
+	var request domain.AccountCreateRequest
 	accountRepo := hRepository.New(hDb.Get(), &account, c)
 
 	if err := c.BodyParser(&request); err != nil {

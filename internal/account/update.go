@@ -10,17 +10,6 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-type AccountUpdateRequest struct {
-	Account       int    `json:"account"`
-	Balance       int    `json:"balance"`
-	Agency        int    `json:"agency"`
-	Digit         int    `json:"digit"`
-	Favorite      bool   `json:"favorite"`
-	Owner         string `json:"owner"`
-	TypeAccount   string `json:"type_account"`
-	InstitutionID int    `json:"institution_id"`
-}
-
 func Update(c *fiber.Ctx) error {
 	rawId := c.Params("id")
 	if rawId == "" {
@@ -40,7 +29,7 @@ func Update(c *fiber.Ctx) error {
 		return hResp.NotFoundResponse(c, err.Error(), "account not found")
 	}
 
-	var request AccountUpdateRequest
+	var request domain.AccountUpdateRequest
 	if err := c.BodyParser(&request); err != nil {
 		return hResp.BadRequestResponse(c, err.Error())
 	}
@@ -55,7 +44,7 @@ func Update(c *fiber.Ctx) error {
 	return hResp.SuccessResponse(c, &account)
 }
 
-func updateAccount(account *domain.Account, request AccountUpdateRequest) {
+func updateAccount(account *domain.Account, request domain.AccountUpdateRequest) {
 	if request.Account != 0 {
 		account.Account = request.Account
 	}

@@ -10,13 +10,6 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-type InstitutionUpdateRequest struct {
-	Code int    `json:"code"`
-	Name string `json:"name"`
-	CNPJ string `json:"cnpj"`
-	Logo string `json:"logo"`
-}
-
 func Update(c *fiber.Ctx) error {
 	rawId := c.Params("id")
 	if rawId == "" {
@@ -29,7 +22,7 @@ func Update(c *fiber.Ctx) error {
 	}
 
 	var institution domain.Institution
-	var request InstitutionUpdateRequest
+	var request domain.InstitutionUpdateRequest
 	institutionRepo := hRepository.New(hDb.Get(), &institution, c)
 
 	err = institutionRepo.GetById(id)
@@ -51,7 +44,7 @@ func Update(c *fiber.Ctx) error {
 	return hResp.SuccessResponse(c, &institution)
 }
 
-func updateInstitution(institution *domain.Institution, request InstitutionUpdateRequest) {
+func updateInstitution(institution *domain.Institution, request domain.InstitutionUpdateRequest) {
 	if request.Code != 0 {
 		institution.Code = request.Code
 	}

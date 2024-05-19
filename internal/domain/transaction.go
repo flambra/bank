@@ -17,6 +17,13 @@ type Transaction struct {
 	Description string
 }
 
+type TransactionCreateRequest struct {
+	Amount      float64 `json:"amount"`
+	PayerID     int     `json:"payer_id"`
+	RecieverID  int     `json:"reciever_id"`
+	Description string  `json:"description"`
+}
+
 type TransactionPageRequest struct {
 	ID    int    `query:"id"`
 	Limit int    `query:"limit"`
@@ -24,9 +31,17 @@ type TransactionPageRequest struct {
 	Sort  string `query:"sort"`
 }
 
-type TransactionResponse struct {
+type TransactionPageResponse struct {
 	Amount      float64 `json:"amount"`
 	PayerID     int     `json:"payer_id"`
 	RecieverID  int     `json:"reciever_id"`
 	Description string  `json:"description"`
+}
+
+type TransactionPageFilter struct {
+	ID int `query:"id"`
+}
+
+func (f TransactionPageFilter) Apply(db *gorm.DB) *gorm.DB {
+	return db.Where("payer_id = ? OR reciever_id = ?", f.ID, f.ID)
 }

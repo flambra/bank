@@ -8,17 +8,9 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-type TransactionCreateRequest struct {
-	Amount      float64 `json:"amount"`
-	PayerID     int     `json:"payer_id"`
-	RecieverID  int     `json:"reciever_id"`
-	Description string  `json:"description"`
-}
-
 func Create(c *fiber.Ctx) error {
-
 	var transaction domain.Transaction
-	var request TransactionCreateRequest
+	var request domain.TransactionCreateRequest
 	transactionRepo := hRepository.New(hDb.Get(), &transaction, c)
 
 	if err := c.BodyParser(&request); err != nil {

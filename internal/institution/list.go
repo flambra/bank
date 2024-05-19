@@ -17,13 +17,13 @@ func List(c *fiber.Ctx) error {
 		return hResp.InternalServerErrorResponse(c, err.Error())
 	}
 
-	var response []map[string]interface{}
+	var response []domain.InstitutionListResponse
 	for _, institution := range institutions {
-		response = append(response, map[string]interface{}{
-			"id":   institution.ID,
-			"code": institution.Code,
-			"name": institution.Name,
-			"logo": institution.Logo,
+		response = append(response, domain.InstitutionListResponse{
+			ID:   institution.ID,
+			Name: institution.Name,
+			Code: institution.Code,
+			Logo: institution.Logo,
 		})
 	}
 

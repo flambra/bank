@@ -20,3 +20,25 @@ type Account struct {
 	TypeAccount   string
 	InstitutionID int
 }
+
+type AccountCreateRequest struct {
+	Account       int    `json:"account"`
+	Balance       int    `json:"balance"`
+	Agency        int    `json:"agency"`
+	Digit         int    `json:"digit"`
+	Favorite      bool   `json:"favorite"`
+	Owner         string `json:"owner"`
+	TypeAccount   string `json:"type_account"`
+	InstitutionID int    `json:"institution_id"`
+}
+
+type AccountUpdateRequest struct {
+	Account       int    `json:"account"`
+	Balance       int    `json:"balance"`
+	Agency        int    `json:"agency"`
+	Digit         int    `json:"digit"`
+	Favorite      bool   `json:"favorite"`
+	Owner         string `json:"owner"`
+	TypeAccount   string `json:"type_account"`
+	InstitutionID int    `json:"institution_id"`
+}
