@@ -11,17 +11,17 @@ type Transaction struct {
 	CreatedAt   time.Time
 	UpdatedAt   time.Time
 	DeletedAt   gorm.DeletedAt `gorm:"index"`
-	Amount      float64
+	Amount      int
 	PayerID     int //User ID
 	RecieverID  int //User ID
 	Description string
 }
 
 type TransactionCreateRequest struct {
-	Amount      float64 `json:"amount"`
-	PayerID     int     `json:"payer_id"`
-	RecieverID  int     `json:"reciever_id"`
-	Description string  `json:"description"`
+	Amount      int    `json:"amount"`
+	PayerID     int    `json:"payer_id"`
+	RecieverID  int    `json:"reciever_id"`
+	Description string `json:"description"`
 }
 
 type TransactionPageRequest struct {
@@ -32,7 +32,7 @@ type TransactionPageRequest struct {
 }
 
 type TransactionPageResponse struct {
-	Amount      float64 `json:"amount"`
+	Amount      int `json:"amount"`
 	PayerID     int     `json:"payer_id"`
 	RecieverID  int     `json:"reciever_id"`
 	Description string  `json:"description"`

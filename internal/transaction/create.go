@@ -1,6 +1,7 @@
 package transaction
 
 import (
+	"github.com/flambra/bank/internal/balance"
 	"github.com/flambra/bank/internal/domain"
 	"github.com/flambra/helpers/hDb"
 	"github.com/flambra/helpers/hRepository"
@@ -22,6 +23,14 @@ func Create(c *fiber.Ctx) error {
 		PayerID:     request.PayerID,
 		RecieverID:  request.RecieverID,
 		Description: request.Description,
+	}
+
+	if err := balance.Update(request.PayerID, -transaction.Amount); err != nil {
+		return hResp.InternalServerErrorResponse(c, err.Error())
+	}
+
+	if err := balance.Update(request.RecieverID, transaction.Amount); err != nil {
+		return hResp.InternalServerErrorResponse(c, err.Error())
 	}
 
 	err := transactionRepo.Create()

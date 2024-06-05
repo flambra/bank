@@ -4,6 +4,7 @@ import (
 	"os"
 
 	"github.com/flambra/bank/internal/account"
+	"github.com/flambra/bank/internal/balance"
 	"github.com/flambra/bank/internal/institution"
 	"github.com/flambra/bank/internal/transaction"
 	"github.com/gofiber/fiber/v2"
@@ -31,5 +32,7 @@ func InitializeRoutes(app *fiber.App) {
 
 	app.Post("/transaction", transaction.Create)
 	app.Get("/transactions", transaction.Page)
+
+	app.Get("/balance/:id", balance.Read)
 
 }
